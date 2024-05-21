@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Estate Account",
+    'name': "POS Use Case",
 
     'summary': """
         "The first step of module creation is to create its directory. In the tutorials directory, add a new directory estate."
@@ -12,17 +12,19 @@
 
     'author': "Odoo",
     'website': "https://www.odoo.com/",
-    'category': 'Tutorials/EstateAccount',
+    'category': 'Tutorials/POSuseCase',
     'version': '0.1',
     'application': True,
     'installable': True,
-    'depends': ['base','estate','account'],
+    'depends': ['base','point_of_sale', 'pos_sale'],
 
     'data': [
-        'report/estate_account_report.xml',
+        'views/pos_config_views.xml',
     ],
     'assets': {
-
+        'point_of_sale._assets_pos': [
+            'pos_usecase/static/src/**/*'
+        ]
 
     },
     'license': 'AGPL-3'

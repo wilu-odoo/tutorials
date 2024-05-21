@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Estate Account",
+    'name': "Sale Leader",
 
     'summary': """
         "The first step of module creation is to create its directory. In the tutorials directory, add a new directory estate."
@@ -12,14 +12,14 @@
 
     'author': "Odoo",
     'website': "https://www.odoo.com/",
-    'category': 'Tutorials/EstateAccount',
+    'category': 'Tutorials/SaleLeader',
     'version': '0.1',
     'application': True,
     'installable': True,
-    'depends': ['base','estate','account'],
+    'depends': ['base','sale','sales_team'],
 
     'data': [
-        'report/estate_account_report.xml',
+        'security/sale_leader_security.xml',
     ],
     'assets': {
 
