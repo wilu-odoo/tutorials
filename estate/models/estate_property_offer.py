@@ -23,6 +23,7 @@ class EstatePropertyOffer(models.Model):
     date_deadline = fields.Date("Deadline Date", compute = "_compute_validity_date", inverse = "_inverse_validity_date")
     property_type_id = fields.Many2one("estate.property.type", related="property_id.property_type_id", store=True)
 
+    
     @api.depends("validity")
     def _compute_validity_date(self):
         for record in self:
@@ -53,7 +54,7 @@ class EstatePropertyOffer(models.Model):
     @api.model
     def create(self, vals):
         if self.env['estate.property'].browse(vals['property_id']).state == 'sold':
-            raise UserError(("New offer cannot have lower price than existing offers"))
+            raise UserError(("Cannot create offer on sold properties"))
         best = self.env['estate.property'].browse(vals['property_id']).best_offer
         if best > vals['price']:
             raise UserError(("New offer cannot have lower price than existing offers"))

@@ -87,7 +87,7 @@ class EstateModel(models.Model):
     def _check_accepted_offer(self):
         for record in self:
             if record.state == 'sold' and not record.offer.filtered(lambda offer: offer.status == 'accepted'):
-                raise ValidationError('Cannot sell a property with no accepted offers.')
+                raise UserError('Cannot sell a property with no accepted offers.')
 
     @api.constrains('expected_price','selling_price')
     def _check_prices(self):

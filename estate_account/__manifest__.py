@@ -20,6 +20,7 @@
 
     'data': [
         'report/estate_account_report.xml',
+        'report/custom_invoice_report.xml',
     ],
     'assets': {
 
